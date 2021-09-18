@@ -6,8 +6,6 @@
 
 @section('body')
     
-    {!! $shareComponent !!}
-    
     <div class="mb-m print-hidden">
         @include('entities.breadcrumbs', ['crumbs' => [
             $page->book,
@@ -25,6 +23,8 @@
 
     @include('entities.sibling-navigation', ['next' => $next, 'previous' => $previous])
 
+        {!! $shareComponent !!}
+        <i class="fas fa-thumbs-up fa-5x"></i>
     @if ($commentsEnabled)
         @if(($previous || $next))
             <div class="px-xl">
