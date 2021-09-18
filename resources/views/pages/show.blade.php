@@ -1,7 +1,7 @@
 @extends('layouts.tri')
 
 @push('social-meta')
-    <meta property="og:description" content="{{ $page->getExcerpt() }}">
+    <meta property="og:description" content="{{ $page->getExcerpt(400) }}">
 
     @if($page->book->cover)
         <meta property="og:image" content="{{ $page->book->getBookCover() }}">

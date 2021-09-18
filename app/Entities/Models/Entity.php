@@ -257,7 +257,15 @@ abstract class Entity extends Model implements Sluggable, Favouritable, Viewable
             $text = mb_substr($text, 0, $length - 3) . '...';
         }
 
-        return trim($text);
+       $text = trim($text);
+
+        foreach($page->tags AS $tag){
+            if($tag->name === "excerpt"){
+                $text = $tag->value . "...";
+            }
+        }
+
+        return $text;
     }
 
     /**
