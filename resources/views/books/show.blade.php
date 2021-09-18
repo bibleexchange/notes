@@ -10,6 +10,8 @@
     <meta property="og:description" content="{{ Str::limit($book->description, 100, '...') }}">
     @if($book->cover)
         <meta property="og:image" content="{{ $book->getBookCover() }}">
+    @else
+        <meta property="og:image" content="{{ url('/uploads/images/gallery/2021-09/be-logo.png') }}">
     @endif
 @endpush
 

@@ -1,9 +1,13 @@
 @extends('layouts.tri')
 
 @push('social-meta')
-    <meta property="og:description" content="{{ Str::limit($page->text, 100, '...') }}">
+    <meta property="og:description" content="{{ Str::limit($page->text, 200, '...') }}">
 
-    <meta property="og:quote" content="{{ Str::limit($page->text, 100, '...') }}">
+    @if($page->book->cover)
+        <meta property="og:image" content="{{ $page->book->getBookCover() }}">
+    @else
+        <meta property="og:image" content="{{ url('/uploads/images/gallery/2021-09/be-logo.png') }}">
+    @endif
 @endpush
 
 @section('body')
