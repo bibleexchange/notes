@@ -116,6 +116,19 @@ class Page extends BookChild
         return url('/' . implode('/', $parts));
     }
 
+    public function getExcerpt(){
+
+        $excerpt = Str::limit($this->text, 400, '...');
+
+        foreach($page->tags AS $tag){
+            if($tag->name === "excerpt"){
+                $excerpt = $tag->value . "...";
+            }
+        }
+
+        return $excerpt
+    }
+
     /**
      * Get the current revision for the page if existing.
      *
