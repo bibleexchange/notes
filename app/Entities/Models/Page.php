@@ -126,7 +126,7 @@ class Page extends BookChild
             }
         }
 
-        return $excerpt
+        return $excerpt;
     }
 
     /**
