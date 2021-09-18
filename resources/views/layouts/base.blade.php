@@ -52,6 +52,7 @@
     @yield('bottom')
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
     @yield('scripts')
+    <script src="/libs/app.js"></script>
 
 </body>
 </html>
