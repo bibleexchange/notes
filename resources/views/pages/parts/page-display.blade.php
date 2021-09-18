@@ -9,8 +9,8 @@
                         <div class="content">
                             <div class="question"></div>
                             <input class="answered"></input>
-                            <button onClick="score()">score</button>
-                            <button onClick="skip()">skip</button>
+                            <button id="score">score</button>
+                            <button id="skip">skip</button>
                         </div>
                     </div>
                 </div>
