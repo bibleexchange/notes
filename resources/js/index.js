@@ -22,7 +22,8 @@ window.trans_plural = translator.parsePlural.bind(translator);
 
 // REVIEW FEATURE
 import Review from "./my-components/review"
-(new Review()).render()
+const review = new Review();
+review.render()
 
 // Load Components
 import components from "./components"

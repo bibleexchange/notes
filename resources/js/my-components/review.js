@@ -13,9 +13,9 @@ class Review {
       this.answered = document.getElementsByClassName('answered')[0];    }
 
     render(){
-
-      this.skipEl.addEventListener('click', this.skip.bind(this))
-      this.scoreEl.addEventListener('click', this.score.bind(this))
+      if(!this.quizEl){return null}
+      this.skipEl && this.skipEl.addEventListener('click', this.skip.bind(this))
+      this.scoreEl && this.scoreEl.addEventListener('click', this.score.bind(this))
 
       let currentPage = this.data.index+1
 

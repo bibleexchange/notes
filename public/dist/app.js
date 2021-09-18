@@ -35899,8 +35899,11 @@
       this.answered = document.getElementsByClassName("answered")[0];
     }
     render() {
-      this.skipEl.addEventListener("click", this.skip.bind(this));
-      this.scoreEl.addEventListener("click", this.score.bind(this));
+      if (!this.quizEl) {
+        return null;
+      }
+      this.skipEl && this.skipEl.addEventListener("click", this.skip.bind(this));
+      this.scoreEl && this.scoreEl.addEventListener("click", this.score.bind(this));
       let currentPage = this.data.index + 1;
       if (this.questions.length >= 1) {
         this.question.innerHTML = "(" + currentPage + "/" + this.questions.length + " )" + this.questions[this.data.index].dataset.question;
@@ -42673,7 +42676,8 @@
   window.trans = translator.get.bind(translator);
   window.trans_choice = translator.getPlural.bind(translator);
   window.trans_plural = translator.parsePlural.bind(translator);
-  new review_default().render();
+  var review = new review_default();
+  review.render();
   components_default();
 })();
 /*!
