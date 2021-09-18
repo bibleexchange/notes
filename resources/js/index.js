@@ -20,13 +20,10 @@ window.trans = translator.get.bind(translator);
 window.trans_choice = translator.getPlural.bind(translator);
 window.trans_plural = translator.parsePlural.bind(translator);
 
-// Load Components
-import components from "./components"
-components();
 
 // REVIEW FEATURE
 
-let data = {
+  let data = {
     index: 0,
     attempts:0
   }
@@ -89,3 +86,7 @@ function score(){
        question.innerHTML = questions[data.index].dataset.question + " (attempts: "+data.attempts+")"
     }
 }
+
+// Load Components
+import components from "./components"
+components();

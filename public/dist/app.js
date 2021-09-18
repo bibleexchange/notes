@@ -42595,7 +42595,6 @@
   window.trans = translator.get.bind(translator);
   window.trans_choice = translator.getPlural.bind(translator);
   window.trans_plural = translator.parsePlural.bind(translator);
-  components_default();
   var data = {
     index: 0,
     attempts: 0
@@ -42610,6 +42609,7 @@
   } else {
     quiz.style.display = "none";
   }
+  components_default();
 })();
 /*!
  * clipboard.js v2.0.8
