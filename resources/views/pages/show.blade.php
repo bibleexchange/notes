@@ -2,6 +2,8 @@
 
 @push('social-meta')
     <meta property="og:description" content="{{ Str::limit($page->text, 100, '...') }}">
+
+    <meta property="og:quote" content="{{ Str::limit($page->text, 100, '...') }}">
 @endpush
 
 @section('body')
