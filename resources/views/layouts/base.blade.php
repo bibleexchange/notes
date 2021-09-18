@@ -18,12 +18,8 @@
 
     <!-- Styles and Fonts -->
     <link rel="stylesheet" href="{{ versioned_asset('dist/styles.css') }}">
+    <link rel="stylesheet" href="/libs/fab/css/all.min.css">
     <link rel="stylesheet" media="print" href="{{ versioned_asset('dist/print-styles.css') }}">
-
-    <script src="{{ asset('js/share.js') }}"></script>
-
-
-
 
     @yield('head')
 
@@ -35,6 +31,25 @@
 
     <!-- Translations for JS -->
     @stack('translations')
+
+          <style>
+            div#social-links {
+                margin: 0 auto;
+                max-width: 500px;
+            }
+            div#social-links ul li {
+                display: inline-block;
+            }          
+            div#social-links ul li a {
+                padding: 20px;
+                border: 1px solid #ccc;
+                margin: 1px;
+                font-size: 30px;
+                color: #222;
+                background-color: #ccc;
+            }
+        </style>
+        
 </head>
 <body class="@yield('body-class')">
 
@@ -55,9 +70,12 @@
     </div>
 
     @yield('bottom')
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" nonce="{{ $cspNonce }}"></script>
+    <script src="{{ asset('js/share.js') }}" nonce="{{ $cspNonce }}"></script>
+
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
+
     @yield('scripts')
-    <script src="/libs/app.js"></script>
 
 </body>
 </html>
