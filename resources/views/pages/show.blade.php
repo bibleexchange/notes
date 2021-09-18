@@ -5,7 +5,9 @@
 @endpush
 
 @section('body')
-
+    
+    {!! $shareComponent !!}
+    
     <div class="mb-m print-hidden">
         @include('entities.breadcrumbs', ['crumbs' => [
             $page->book,

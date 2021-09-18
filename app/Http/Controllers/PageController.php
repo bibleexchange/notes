@@ -137,6 +137,17 @@ class PageController extends Controller
             return redirect($page->getUrl());
         }
 
+        $shareComponent = \Share::page(
+            $page->getUrl(),
+            $page->name . '... on Bible exchange
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+
         $this->checkOwnablePermission('page-view', $page);
 
         $pageContent = (new PageContent($page));
@@ -164,6 +175,7 @@ class PageController extends Controller
             'pageNav'         => $pageNav,
             'next'            => $nextPreviousLocator->getNext(),
             'previous'        => $nextPreviousLocator->getPrevious(),
+            'shareComponent'  => $shareComponent,
         ]);
     }
 
