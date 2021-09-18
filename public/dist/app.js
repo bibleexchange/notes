@@ -2472,11 +2472,11 @@
           }
           var e = removeChildrenAndAdd(display.measure, elt("pre", "x", "CodeMirror-line-like"));
           var style = window.getComputedStyle ? window.getComputedStyle(e) : e.currentStyle;
-          var data = { left: parseInt(style.paddingLeft), right: parseInt(style.paddingRight) };
-          if (!isNaN(data.left) && !isNaN(data.right)) {
-            display.cachedPaddingH = data;
+          var data2 = { left: parseInt(style.paddingLeft), right: parseInt(style.paddingRight) };
+          if (!isNaN(data2.left) && !isNaN(data2.right)) {
+            display.cachedPaddingH = data2;
           }
-          return data;
+          return data2;
         }
         function scrollGap(cm) {
           return scrollerGap - cm.display.nativeBarWidth;
@@ -20897,9 +20897,9 @@
             if (state != meta && states.hasOwnProperty(state)) {
               var list = states_[state] = [], orig = states[state];
               for (var i = 0; i < orig.length; i++) {
-                var data = orig[i];
-                list.push(new Rule(data, states));
-                if (data.indent || data.dedent)
+                var data2 = orig[i];
+                list.push(new Rule(data2, states));
+                if (data2.indent || data2.dedent)
                   hasIndentation = true;
               }
             }
@@ -20978,12 +20978,12 @@
             result.push(val[i] && val[i].replace(/\./g, " "));
           return result;
         }
-        function Rule(data, states) {
-          if (data.next || data.push)
-            ensureState(states, data.next || data.push);
-          this.regex = toRegex(data.regex);
-          this.token = asToken(data.token);
-          this.data = data;
+        function Rule(data2, states) {
+          if (data2.next || data2.push)
+            ensureState(states, data2.next || data2.push);
+          this.regex = toRegex(data2.regex);
+          this.token = asToken(data2.token);
+          this.data = data2;
         }
         function tokenFunction(states, config) {
           return function(stream, state) {
@@ -24349,13 +24349,13 @@
               var fails = __webpack_require__2(7293);
               var replacement = /#|\.prototype\./;
               var isForced = function(feature, detection) {
-                var value = data[normalize(feature)];
+                var value = data2[normalize(feature)];
                 return value == POLYFILL ? true : value == NATIVE ? false : typeof detection == "function" ? fails(detection) : !!detection;
               };
               var normalize = isForced.normalize = function(string) {
                 return String(string).replace(replacement, ".").toLowerCase();
               };
-              var data = isForced.data = {};
+              var data2 = isForced.data = {};
               var NATIVE = isForced.NATIVE = "N";
               var POLYFILL = isForced.POLYFILL = "P";
               module2.exports = isForced;
@@ -25363,14 +25363,14 @@
                   var TypedArrayConstructorPrototype = TypedArrayConstructor && TypedArrayConstructor.prototype;
                   var exported = {};
                   var getter = function(that, index2) {
-                    var data = getInternalState(that);
-                    return data.view[GETTER](index2 * BYTES + data.byteOffset, true);
+                    var data2 = getInternalState(that);
+                    return data2.view[GETTER](index2 * BYTES + data2.byteOffset, true);
                   };
                   var setter = function(that, index2, value) {
-                    var data = getInternalState(that);
+                    var data2 = getInternalState(that);
                     if (CLAMPED)
                       value = (value = round(value)) < 0 ? 0 : value > 255 ? 255 : value & 255;
-                    data.view[SETTER](index2 * BYTES + data.byteOffset, value, true);
+                    data2.view[SETTER](index2 * BYTES + data2.byteOffset, value, true);
                   };
                   var addElement = function(that, index2) {
                     nativeDefineProperty(that, index2, {
@@ -25384,19 +25384,19 @@
                     });
                   };
                   if (!NATIVE_ARRAY_BUFFER_VIEWS) {
-                    TypedArrayConstructor = wrapper(function(that, data, offset, $length) {
+                    TypedArrayConstructor = wrapper(function(that, data2, offset, $length) {
                       anInstance(that, TypedArrayConstructor, CONSTRUCTOR_NAME);
                       var index2 = 0;
                       var byteOffset = 0;
                       var buffer, byteLength, length;
-                      if (!isObject(data)) {
-                        length = toIndex(data);
+                      if (!isObject(data2)) {
+                        length = toIndex(data2);
                         byteLength = length * BYTES;
                         buffer = new ArrayBuffer2(byteLength);
-                      } else if (isArrayBuffer(data)) {
-                        buffer = data;
+                      } else if (isArrayBuffer(data2)) {
+                        buffer = data2;
                         byteOffset = toOffset(offset, BYTES);
-                        var $len = data.byteLength;
+                        var $len = data2.byteLength;
                         if ($length === void 0) {
                           if ($len % BYTES)
                             throw RangeError2(WRONG_LENGTH);
@@ -25409,10 +25409,10 @@
                             throw RangeError2(WRONG_LENGTH);
                         }
                         length = byteLength / BYTES;
-                      } else if (isTypedArray(data)) {
-                        return fromList(TypedArrayConstructor, data);
+                      } else if (isTypedArray(data2)) {
+                        return fromList(TypedArrayConstructor, data2);
                       } else {
-                        return typedArrayFrom.call(TypedArrayConstructor, data);
+                        return typedArrayFrom.call(TypedArrayConstructor, data2);
                       }
                       setInternalState(that, {
                         buffer,
@@ -25428,16 +25428,16 @@
                       setPrototypeOf(TypedArrayConstructor, TypedArray);
                     TypedArrayConstructorPrototype = TypedArrayConstructor.prototype = create(TypedArrayPrototype);
                   } else if (TYPED_ARRAYS_CONSTRUCTORS_REQUIRES_WRAPPERS) {
-                    TypedArrayConstructor = wrapper(function(dummy, data, typedArrayOffset, $length) {
+                    TypedArrayConstructor = wrapper(function(dummy, data2, typedArrayOffset, $length) {
                       anInstance(dummy, TypedArrayConstructor, CONSTRUCTOR_NAME);
                       return inheritIfRequired(function() {
-                        if (!isObject(data))
-                          return new NativeTypedArrayConstructor(toIndex(data));
-                        if (isArrayBuffer(data))
-                          return $length !== void 0 ? new NativeTypedArrayConstructor(data, toOffset(typedArrayOffset, BYTES), $length) : typedArrayOffset !== void 0 ? new NativeTypedArrayConstructor(data, toOffset(typedArrayOffset, BYTES)) : new NativeTypedArrayConstructor(data);
-                        if (isTypedArray(data))
-                          return fromList(TypedArrayConstructor, data);
-                        return typedArrayFrom.call(TypedArrayConstructor, data);
+                        if (!isObject(data2))
+                          return new NativeTypedArrayConstructor(toIndex(data2));
+                        if (isArrayBuffer(data2))
+                          return $length !== void 0 ? new NativeTypedArrayConstructor(data2, toOffset(typedArrayOffset, BYTES), $length) : typedArrayOffset !== void 0 ? new NativeTypedArrayConstructor(data2, toOffset(typedArrayOffset, BYTES)) : new NativeTypedArrayConstructor(data2);
+                        if (isTypedArray(data2))
+                          return fromList(TypedArrayConstructor, data2);
+                        return typedArrayFrom.call(TypedArrayConstructor, data2);
                       }(), dummy, TypedArrayConstructor);
                     });
                     if (setPrototypeOf)
@@ -26494,8 +26494,8 @@
             2472: function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__2) {
               var createTypedArrayConstructor = __webpack_require__2(9843);
               createTypedArrayConstructor("Uint8", function(init) {
-                return function Uint8Array2(data, byteOffset, length) {
-                  return init(this, data, byteOffset, length);
+                return function Uint8Array2(data2, byteOffset, length) {
+                  return init(this, data2, byteOffset, length);
                 };
               });
             },
@@ -30302,8 +30302,8 @@
               }
               return elements;
             };
-            Dropzone2.confirm = function(question, accepted, rejected) {
-              if (window.confirm(question)) {
+            Dropzone2.confirm = function(question2, accepted, rejected) {
+              if (window.confirm(question2)) {
                 return accepted();
               } else if (rejected != null) {
                 return rejected();
@@ -30365,12 +30365,12 @@
               canvas.height = ih;
               var ctx = canvas.getContext("2d");
               ctx.drawImage(img, 0, 0);
-              var _ctx$getImageData = ctx.getImageData(1, 0, 1, ih), data = _ctx$getImageData.data;
+              var _ctx$getImageData = ctx.getImageData(1, 0, 1, ih), data2 = _ctx$getImageData.data;
               var sy = 0;
               var ey = ih;
               var py = ih;
               while (py > sy) {
-                var alpha = data[(py - 1) * 4 + 3];
+                var alpha = data2[(py - 1) * 4 + 3];
                 if (alpha === 0) {
                   ey = py;
                 } else {
@@ -35723,32 +35723,32 @@
       params
     });
   }
-  async function post(url, data = null) {
-    return dataRequest("POST", url, data);
+  async function post(url, data2 = null) {
+    return dataRequest("POST", url, data2);
   }
-  async function put(url, data = null) {
-    return dataRequest("PUT", url, data);
+  async function put(url, data2 = null) {
+    return dataRequest("PUT", url, data2);
   }
-  async function patch(url, data = null) {
-    return dataRequest("PATCH", url, data);
+  async function patch(url, data2 = null) {
+    return dataRequest("PATCH", url, data2);
   }
-  async function performDelete(url, data = null) {
-    return dataRequest("DELETE", url, data);
+  async function performDelete(url, data2 = null) {
+    return dataRequest("DELETE", url, data2);
   }
-  async function dataRequest(method, url, data = null) {
+  async function dataRequest(method, url, data2 = null) {
     const options = {
       method,
-      body: data
+      body: data2
     };
-    if (typeof data === "object" && !(data instanceof FormData)) {
+    if (typeof data2 === "object" && !(data2 instanceof FormData)) {
       options.headers = {
         "Content-Type": "application/json",
         "X-Requested-With": "XMLHttpRequest"
       };
-      options.body = JSON.stringify(data);
+      options.body = JSON.stringify(data2);
     }
-    if (data instanceof FormData && method !== "post") {
-      data.append("_method", method);
+    if (data2 instanceof FormData && method !== "post") {
+      data2.append("_method", method);
       options.method = "post";
     }
     return request(url, options);
@@ -37025,7 +37025,7 @@
   }
   var _excluded = ["evt"];
   var pluginEvent2 = function pluginEvent3(eventName, sortable) {
-    var _ref = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, originalEvent = _ref.evt, data = _objectWithoutProperties(_ref, _excluded);
+    var _ref = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, originalEvent = _ref.evt, data2 = _objectWithoutProperties(_ref, _excluded);
     PluginManager.pluginEvent.bind(Sortable)(eventName, sortable, _objectSpread2({
       dragEl,
       parentEl,
@@ -37058,7 +37058,7 @@
           originalEvent
         });
       }
-    }, data));
+    }, data2));
   };
   function _dispatchEvent(info) {
     dispatchEvent(_objectSpread2({
@@ -39458,16 +39458,16 @@
         }
       });
     }
-    onSending(file, xhr, data) {
+    onSending(file, xhr, data2) {
       const token = window.document.querySelector("meta[name=token]").getAttribute("content");
-      data.append("_token", token);
+      data2.append("_token", token);
       xhr.ontimeout = (e) => {
         this.dz.emit("complete", file);
         this.dz.emit("error", file, this.timeoutMessage);
       };
     }
-    onSuccess(file, data) {
-      this.$emit("success", { file, data });
+    onSuccess(file, data2) {
+      this.$emit("success", { file, data: data2 });
       if (this.successMessage) {
         window.$events.emit("success", this.successMessage);
       }
@@ -39713,24 +39713,24 @@
       this.input.value = isSelected ? `${type}:${id}` : "";
       const link = item.getAttribute("href");
       const name = item.querySelector(".entity-list-item-name").textContent;
-      const data = { id: Number(id), name, link };
+      const data2 = { id: Number(id), name, link };
       if (isSelected) {
         item.classList.add("selected");
-        this.selectedItemData = data;
+        this.selectedItemData = data2;
       } else {
         window.$events.emit("entity-select-change", null);
       }
       if (!isDblClick && !isSelected)
         return;
       if (isDblClick) {
-        this.confirmSelection(data);
+        this.confirmSelection(data2);
       }
       if (isSelected) {
-        window.$events.emit("entity-select-change", data);
+        window.$events.emit("entity-select-change", data2);
       }
     }
-    confirmSelection(data) {
-      window.$events.emit("entity-select-confirm", data);
+    confirmSelection(data2) {
+      window.$events.emit("entity-select-confirm", data2);
     }
     unselectAll() {
       const selected = this.elem.querySelectorAll(".selected");
@@ -40213,15 +40213,15 @@
     if (iFrame)
       document.body.removeChild(iFrame);
   }
-  function drawPostMessage(data) {
-    iFrame.contentWindow.postMessage(JSON.stringify(data), lastApprovedOrigin);
+  function drawPostMessage(data2) {
+    iFrame.contentWindow.postMessage(JSON.stringify(data2), lastApprovedOrigin);
   }
   async function upload(imageData, pageUploadedToId) {
-    let data = {
+    let data2 = {
       image: imageData,
       uploaded_to: pageUploadedToId
     };
-    const resp = await window.$http.post(window.baseUrl(`/images/drawio`), data);
+    const resp = await window.$http.post(window.baseUrl(`/images/drawio`), data2);
     return resp.data;
   }
   async function load(drawingId) {
@@ -40606,11 +40606,11 @@
       drawio_default.show(url, () => {
         return Promise.resolve("");
       }, (pngData) => {
-        const data = {
+        const data2 = {
           image: pngData,
           uploaded_to: Number(this.pageId)
         };
-        window.$http.post("/images/drawio", data).then((resp) => {
+        window.$http.post("/images/drawio", data2).then((resp) => {
           this.insertDrawing(resp.data, cursorPos);
           drawio_default.close();
         }).catch((err) => {
@@ -40634,11 +40634,11 @@
       drawio_default.show(drawioUrl, () => {
         return drawio_default.load(drawingId);
       }, (pngData) => {
-        let data = {
+        let data2 = {
           image: pngData,
           uploaded_to: Number(this.pageId)
         };
-        window.$http.post("/images/drawio", data).then((resp) => {
+        window.$http.post("/images/drawio", data2).then((resp) => {
           let newText = `<div drawio-diagram="${resp.data.id}"><img src="${resp.data.url}"></div>`;
           let newContent = this.cm.getValue().split("\n").map((line) => {
             if (line.indexOf(`drawio-diagram="${drawingId}"`) !== -1) {
@@ -41233,15 +41233,15 @@
       this.container.closest("form").submit();
     }
     async saveDraft() {
-      const data = {
+      const data2 = {
         name: this.titleElem.value.trim(),
         html: this.editorHTML
       };
       if (this.editorType === "markdown") {
-        data.markdown = this.editorMarkdown;
+        data2.markdown = this.editorMarkdown;
       }
       try {
-        const resp = await window.$http.put(`/ajax/page/${this.pageId}/save-draft`, data);
+        const resp = await window.$http.put(`/ajax/page/${this.pageId}/save-draft`, data2);
         if (!this.isNewDraft) {
           this.toggleDiscardDraftVisibility(true);
         }
@@ -41250,7 +41250,7 @@
       } catch (err) {
         try {
           const saveKey = `draft-save-fail-${new Date().toISOString()}`;
-          window.localStorage.setItem(saveKey, JSON.stringify(data));
+          window.localStorage.setItem(saveKey, JSON.stringify(data2));
         } catch (err2) {
         }
         window.$events.emit("error", this.autosaveFailText);
@@ -42502,11 +42502,11 @@
       instance.$refs = allRefs.refs;
       instance.$manyRefs = allRefs.manyRefs;
       instance.$opts = parseOpts(name, element);
-      instance.$emit = (eventName, data = {}) => {
-        data.from = instance;
+      instance.$emit = (eventName, data2 = {}) => {
+        data2.from = instance;
         const event = new CustomEvent(`${name}-${eventName}`, {
           bubbles: true,
-          detail: data
+          detail: data2
         });
         instance.$el.dispatchEvent(event);
       };
@@ -42596,6 +42596,20 @@
   window.trans_choice = translator.getPlural.bind(translator);
   window.trans_plural = translator.parsePlural.bind(translator);
   components_default();
+  var data = {
+    index: 0,
+    attempts: 0
+  };
+  var questions = document.getElementsByClassName("review");
+  var question = document.getElementsByClassName("question")[0];
+  var quiz = document.getElementById("quiz");
+  var currentPage = data.index + 1;
+  if (questions.length >= 1) {
+    question.innerHTML = "(" + currentPage + "/" + questions.length + " )" + questions[data.index].dataset.question;
+    quiz.style.display = "block";
+  } else {
+    quiz.style.display = "none";
+  }
 })();
 /*!
  * clipboard.js v2.0.8
