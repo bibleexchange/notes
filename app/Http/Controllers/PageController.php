@@ -139,7 +139,7 @@ class PageController extends Controller
 
         $shareComponent = \Share::page(
             $page->getUrl(),
-            $page->name . '... on Bible exchange
+            $page->name . '... on Bible exchange'
         )
         ->facebook()
         ->twitter()
