@@ -57,6 +57,21 @@
                 background-color: #ccc;
             }
         </style>
+
+    <script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Bible exchange",
+    "url": "https://bible.exchange",
+    "sameAs": ["https://facebook.com/thebibleexchange",
+               "https://www.instagram.com/bible_exchange",
+               "https://twitter.com/bible_exchange"],
+    "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://bible.exchange/search?term={search_term}",
+    "query-input": "required name=search_term"
+    }
+    }</script>
         
 </head>
 <body class="@yield('body-class')">
