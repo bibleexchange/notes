@@ -35674,6 +35674,314 @@
     }
   });
 
+  // resources/js/sgr-block-embed/lib/services/VideoServiceBase.js
+  var require_VideoServiceBase = __commonJS({
+    "resources/js/sgr-block-embed/lib/services/VideoServiceBase.js"(exports, module) {
+      "use strict";
+      function defaultUrlFilter(url, _videoID, _serviceName, _options) {
+        return url;
+      }
+      var VideoServiceBase = class {
+        constructor(name, options, env) {
+          this.name = name;
+          this.options = Object.assign(this.getDefaultOptions(), options);
+          this.env = env;
+        }
+        getDefaultOptions() {
+          return {};
+        }
+        extractVideoID(reference) {
+          return reference;
+        }
+        getVideoUrl(_videoID) {
+          throw new Error("not implemented");
+        }
+        getFilteredVideoUrl(videoID) {
+          let filterUrlDelegate = typeof this.env.options.filterUrl === "function" ? this.env.options.filterUrl : defaultUrlFilter;
+          let videoUrl = this.getVideoUrl(videoID);
+          return filterUrlDelegate(videoUrl, this.name, videoID, this.env.options);
+        }
+        getEmbedCode(videoID) {
+          let containerClassNames = [];
+          if (this.env.options.containerClassName) {
+            containerClassNames.push(this.env.options.containerClassName);
+          }
+          let escapedServiceName = this.env.md.utils.escapeHtml(this.name);
+          containerClassNames.push(this.env.options.serviceClassPrefix + escapedServiceName);
+          let iframeAttributeList = [];
+          iframeAttributeList.push(["type", "text/html"]);
+          iframeAttributeList.push(["src", this.getFilteredVideoUrl(videoID)]);
+          iframeAttributeList.push(["frameborder", 0]);
+          if (this.env.options.outputPlayerSize === true) {
+            if (this.options.width !== void 0 && this.options.width !== null) {
+              iframeAttributeList.push(["width", this.options.width]);
+            }
+            if (this.options.height !== void 0 && this.options.height !== null) {
+              iframeAttributeList.push(["height", this.options.height]);
+            }
+          }
+          if (this.env.options.allowFullScreen === true) {
+            iframeAttributeList.push(["webkitallowfullscreen"]);
+            iframeAttributeList.push(["mozallowfullscreen"]);
+            iframeAttributeList.push(["allowfullscreen"]);
+          }
+          let iframeAttributes = iframeAttributeList.map((pair) => pair[1] !== void 0 ? `${pair[0]}="${pair[1]}"` : pair[0]).join(" ");
+          return `<div class="${containerClassNames.join(" ")}"><iframe ${iframeAttributes}></iframe></div>
+`;
+        }
+      };
+      module.exports = VideoServiceBase;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/services/YouTubeService.js
+  var require_YouTubeService = __commonJS({
+    "resources/js/sgr-block-embed/lib/services/YouTubeService.js"(exports, module) {
+      "use strict";
+      var VideoServiceBase = require_VideoServiceBase();
+      var YouTubeService = class extends VideoServiceBase {
+        getDefaultOptions() {
+          return { width: 640, height: 390 };
+        }
+        extractVideoID(reference) {
+          let match = reference.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&\?]*).*/);
+          return match && match[7].length === 11 ? match[7] : reference;
+        }
+        getVideoUrl(videoID) {
+          let escapedVideoID = this.env.md.utils.escapeHtml(videoID);
+          return `//www.youtube.com/embed/${escapedVideoID}`;
+        }
+      };
+      module.exports = YouTubeService;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/services/VimeoService.js
+  var require_VimeoService = __commonJS({
+    "resources/js/sgr-block-embed/lib/services/VimeoService.js"(exports, module) {
+      "use strict";
+      var VideoServiceBase = require_VideoServiceBase();
+      var VimeoService = class extends VideoServiceBase {
+        getDefaultOptions() {
+          return { width: 500, height: 281 };
+        }
+        extractVideoID(reference) {
+          let match = reference.match(/https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/);
+          return match && typeof match[3] === "string" ? match[3] : reference;
+        }
+        getVideoUrl(videoID) {
+          let escapedVideoID = this.env.md.utils.escapeHtml(videoID);
+          return `//player.vimeo.com/video/${escapedVideoID}`;
+        }
+      };
+      module.exports = VimeoService;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/services/VineService.js
+  var require_VineService = __commonJS({
+    "resources/js/sgr-block-embed/lib/services/VineService.js"(exports, module) {
+      "use strict";
+      var VideoServiceBase = require_VideoServiceBase();
+      var VineService = class extends VideoServiceBase {
+        getDefaultOptions() {
+          return { width: 600, height: 600, embed: "simple" };
+        }
+        extractVideoID(reference) {
+          let match = reference.match(/^http(?:s?):\/\/(?:www\.)?vine\.co\/v\/([a-zA-Z0-9]{1,13}).*/);
+          return match && match[1].length === 11 ? match[1] : reference;
+        }
+        getVideoUrl(videoID) {
+          let escapedVideoID = this.env.md.utils.escapeHtml(videoID);
+          let escapedEmbed = this.env.md.utils.escapeHtml(this.options.embed);
+          return `//vine.co/v/${escapedVideoID}/embed/${escapedEmbed}`;
+        }
+      };
+      module.exports = VineService;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/services/PreziService.js
+  var require_PreziService = __commonJS({
+    "resources/js/sgr-block-embed/lib/services/PreziService.js"(exports, module) {
+      "use strict";
+      var VideoServiceBase = require_VideoServiceBase();
+      var PreziService = class extends VideoServiceBase {
+        getDefaultOptions() {
+          return { width: 550, height: 400 };
+        }
+        extractVideoID(reference) {
+          let match = reference.match(/^https:\/\/prezi.com\/(.[^/]+)/);
+          return match ? match[1] : reference;
+        }
+        getVideoUrl(videoID) {
+          let escapedVideoID = this.env.md.utils.escapeHtml(videoID);
+          return "https://prezi.com/embed/" + escapedVideoID + "/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI";
+        }
+      };
+      module.exports = PreziService;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/PluginEnvironment.js
+  var require_PluginEnvironment = __commonJS({
+    "resources/js/sgr-block-embed/lib/PluginEnvironment.js"(exports, module) {
+      "use strict";
+      var YouTubeService = require_YouTubeService();
+      var VimeoService = require_VimeoService();
+      var VineService = require_VineService();
+      var PreziService = require_PreziService();
+      var PluginEnvironment = class {
+        constructor(md, options) {
+          this.md = md;
+          this.options = Object.assign(this.getDefaultOptions(), options);
+          this._initServices();
+        }
+        _initServices() {
+          let defaultServiceBindings = {
+            "youtube": YouTubeService,
+            "vimeo": VimeoService,
+            "vine": VineService,
+            "prezi": PreziService
+          };
+          let serviceBindings = Object.assign({}, defaultServiceBindings, this.options.services);
+          let services = {};
+          for (let serviceName of Object.keys(serviceBindings)) {
+            let _serviceClass = serviceBindings[serviceName];
+            services[serviceName] = new _serviceClass(serviceName, this.options[serviceName], this);
+          }
+          this.services = services;
+        }
+        getDefaultOptions() {
+          return {
+            containerClassName: "block-embed",
+            serviceClassPrefix: "block-embed-service-",
+            outputPlayerSize: true,
+            allowFullScreen: true,
+            filterUrl: null
+          };
+        }
+      };
+      module.exports = PluginEnvironment;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/renderer.js
+  var require_renderer2 = __commonJS({
+    "resources/js/sgr-block-embed/lib/renderer.js"(exports, module) {
+      "use strict";
+      function renderer(tokens, idx, options, _env) {
+        let videoToken = tokens[idx];
+        let service = videoToken.info.service;
+        let videoID = videoToken.info.videoID;
+        return service.getEmbedCode(videoID);
+      }
+      module.exports = renderer;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/tokenizer.js
+  var require_tokenizer = __commonJS({
+    "resources/js/sgr-block-embed/lib/tokenizer.js"(exports, module) {
+      "use strict";
+      var SYNTAX_CHARS = "@[]()".split("");
+      var SYNTAX_CODES = SYNTAX_CHARS.map((char) => char.charCodeAt(0));
+      function advanceToSymbol(state, endLine, symbol, pointer) {
+        let maxPos = null;
+        let symbolLine = pointer.line;
+        let symbolIndex = state.src.indexOf(symbol, pointer.pos);
+        if (symbolIndex === -1)
+          return false;
+        maxPos = state.eMarks[pointer.line];
+        while (symbolIndex >= maxPos) {
+          ++symbolLine;
+          maxPos = state.eMarks[symbolLine];
+          if (symbolLine >= endLine)
+            return false;
+        }
+        pointer.prevPos = pointer.pos;
+        pointer.pos = symbolIndex;
+        pointer.line = symbolLine;
+        return true;
+      }
+      function tokenizer(state, startLine, endLine, silent) {
+        let startPos = state.bMarks[startLine] + state.tShift[startLine];
+        let maxPos = state.eMarks[startLine];
+        let pointer = { line: startLine, pos: startPos };
+        if (startLine !== 0) {
+          let prevLineStartPos = state.bMarks[startLine - 1] + state.tShift[startLine - 1];
+          let prevLineMaxPos = state.eMarks[startLine - 1];
+          if (prevLineMaxPos > prevLineStartPos)
+            return false;
+        }
+        if (maxPos - startPos < 2)
+          return false;
+        if (SYNTAX_CODES[0] !== state.src.charCodeAt(pointer.pos++))
+          return false;
+        if (SYNTAX_CODES[1] !== state.src.charCodeAt(pointer.pos++))
+          return false;
+        if (!advanceToSymbol(state, endLine, "]", pointer))
+          return false;
+        let serviceName = state.src.substr(pointer.prevPos, pointer.pos - pointer.prevPos).trim().toLowerCase();
+        ++pointer.pos;
+        let service = this.services[serviceName];
+        if (!service)
+          return false;
+        if (SYNTAX_CODES[3] !== state.src.charCodeAt(pointer.pos++))
+          return false;
+        if (!advanceToSymbol(state, endLine, ")", pointer))
+          return false;
+        let videoReference = state.src.substr(pointer.prevPos, pointer.pos - pointer.prevPos).trim();
+        ++pointer.pos;
+        maxPos = state.eMarks[pointer.line];
+        let trailingText = state.src.substr(pointer.pos, maxPos - pointer.pos).trim();
+        if (trailingText !== "")
+          return false;
+        if (endLine !== pointer.line + 1) {
+          let nextLineStartPos = state.bMarks[pointer.line + 1] + state.tShift[pointer.line + 1];
+          let nextLineMaxPos = state.eMarks[pointer.line + 1];
+          if (nextLineMaxPos > nextLineStartPos)
+            return false;
+        }
+        if (pointer.line >= endLine)
+          return false;
+        if (!silent) {
+          let token = state.push("video", "div", 0);
+          token.markup = state.src.slice(startPos, pointer.pos);
+          token.block = true;
+          token.info = {
+            serviceName,
+            service,
+            videoReference,
+            videoID: service.extractVideoID(videoReference)
+          };
+          token.map = [startLine, pointer.line + 1];
+          state.line = pointer.line + 1;
+        }
+        return true;
+      }
+      module.exports = tokenizer;
+    }
+  });
+
+  // resources/js/sgr-block-embed/lib/index.js
+  var require_lib2 = __commonJS({
+    "resources/js/sgr-block-embed/lib/index.js"(exports, module) {
+      "use strict";
+      var PluginEnvironment = require_PluginEnvironment();
+      var renderer = require_renderer2();
+      var tokenizer = require_tokenizer();
+      function setup(md, options) {
+        let env = new PluginEnvironment(md, options);
+        md.block.ruler.before("fence", "video", tokenizer.bind(env), {
+          alt: ["paragraph", "reference", "blockquote", "list"]
+        });
+        md.renderer.rules["video"] = renderer.bind(env);
+      }
+      module.exports = setup;
+    }
+  });
+
   // resources/js/services/events.js
   var listeners = {};
   var stack = [];
@@ -40312,6 +40620,7 @@
   var drawio_default = { show, close, upload, load };
 
   // resources/js/components/markdown-editor.js
+  var blockEmbedPlugin = require_lib2();
   var MarkdownEditor = class {
     setup() {
       this.elem = this.$el;
@@ -40319,7 +40628,9 @@
       this.textDirection = this.$opts.textDirection;
       this.imageUploadErrorText = this.$opts.imageUploadErrorText;
       this.serverUploadLimitText = this.$opts.serverUploadLimitText;
-      this.markdown = new import_markdown_it.default({ html: true });
+      this.markdown = new import_markdown_it.default({ html: true }).use(blockEmbedPlugin, {
+        containerClassName: "video-embed"
+      });
       this.markdown.use(import_markdown_it_task_lists.default, { label: true });
       this.display = this.elem.querySelector(".markdown-display");
       this.displayStylesLoaded = false;

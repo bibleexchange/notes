@@ -6,8 +6,8 @@
     <title>{{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ setting('app-name') }}</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD27Q020H"></script>
-    <script>
+    <script nonce="{{ $cspNonce }}" async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD27Q020H"></script>
+    <script nonce="{{ $cspNonce }}">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -60,7 +60,7 @@
             }
         </style>
 
-    <script type="application/ld+json">{
+    <script type="application/ld+json" nonce="{{ $cspNonce }}">{
     "@context": "http://schema.org",
     "@type": "WebSite",
     "name": "Bible exchange",
@@ -101,6 +101,9 @@
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
 
     @yield('scripts')
+
+    <script nonce="{{ $cspNonce }}" src="https://biblia.com/api/logos.biblia.js"></script>
+    <script nonce="{{ $cspNonce }}">logos.biblia.init();</script>
 
 </body>
 </html>
