@@ -6,6 +6,8 @@ import {debounce} from "../services/util";
 
 import DrawIO from "../services/drawio";
 
+var blockEmbedPlugin = require("../sgr-block-embed");
+
 class MarkdownEditor {
 
     setup() {
@@ -16,7 +18,9 @@ class MarkdownEditor {
         this.imageUploadErrorText = this.$opts.imageUploadErrorText;
         this.serverUploadLimitText = this.$opts.serverUploadLimitText;
 
-        this.markdown = new MarkdownIt({html: true});
+        this.markdown = new MarkdownIt({html: true}).use(blockEmbedPlugin, {
+  containerClassName: "video-embed"
+});
         this.markdown.use(mdTasksLists, {label: true});
 
         this.display = this.elem.querySelector('.markdown-display');

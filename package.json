@@ -28,6 +28,7 @@
     "dropzone": "^5.9.2",
     "font-awesome": "^4.7.0",
     "markdown-it": "^12.2.0",
+    "markdown-it-block-embed": "^0.0.3",
     "markdown-it-task-lists": "^2.1.1",
     "sortablejs": "^1.14.0"
   }
