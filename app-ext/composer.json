@@ -1,0 +1,11 @@
+add app-ext folder to psr-4
+...
+"autoload": {
+        "classmap": [
+            ...
+        ],
+        "psr-4": {
+            "BookStack\\": "app/",
+            "Extended\\": "app-ext/"
+        },
+...

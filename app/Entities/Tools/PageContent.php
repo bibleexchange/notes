@@ -5,6 +5,7 @@ namespace BookStack\Entities\Tools;
 use BookStack\Entities\Models\Page;
 use BookStack\Entities\Tools\Markdown\CustomListItemRenderer;
 use BookStack\Entities\Tools\Markdown\CustomStrikeThroughExtension;
+use Extended\Entities\Tools\Markdown\StephenCustomEmbed\CustomEmbedExtension;
 use BookStack\Exceptions\ImageUploadException;
 use BookStack\Facades\Theme;
 use BookStack\Theming\ThemeEvents;
@@ -63,7 +64,10 @@ class PageContent
         $environment->addExtension(new TableExtension());
         $environment->addExtension(new TaskListExtension());
         $environment->addExtension(new CustomStrikeThroughExtension());
+        $environment->addExtension(new CustomEmbedExtension());
+
         $environment = Theme::dispatch(ThemeEvents::COMMONMARK_ENVIRONMENT_CONFIGURE, $environment) ?? $environment;
+        
         $converter = new CommonMarkConverter([], $environment);
 
         $environment->addBlockRenderer(ListItem::class, new CustomListItemRenderer(), 10);
