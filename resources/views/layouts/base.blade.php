@@ -102,8 +102,5 @@
 
     @yield('scripts')
 
-    <script nonce="{{ $cspNonce }}" src="https://biblia.com/api/logos.biblia.js"></script>
-    <script nonce="{{ $cspNonce }}">logos.biblia.init();</script>
-
 </body>
 </html>

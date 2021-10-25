@@ -1,0 +1,9 @@
+use Extended\Entities\Tools\Markdown\StephenCustomEmbed\CustomEmbedExtension;
+
+protected function markdownToHtml(string $markdown): string
+    {
+    ...
+        $environment->addExtension(new CustomEmbedExtension());
+    ..
+
+    }

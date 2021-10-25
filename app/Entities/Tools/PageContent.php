@@ -5,7 +5,7 @@ namespace BookStack\Entities\Tools;
 use BookStack\Entities\Models\Page;
 use BookStack\Entities\Tools\Markdown\CustomListItemRenderer;
 use BookStack\Entities\Tools\Markdown\CustomStrikeThroughExtension;
-use BookStack\Entities\Tools\Markdown\StephenCustomEmbed\CustomEmbedExtension;
+use Extended\Entities\Tools\Markdown\StephenCustomEmbed\CustomEmbedExtension;
 use BookStack\Exceptions\ImageUploadException;
 use BookStack\Facades\Theme;
 use BookStack\Theming\ThemeEvents;

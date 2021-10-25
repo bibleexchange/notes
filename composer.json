@@ -52,7 +52,8 @@
             "database/factories"
         ],
         "psr-4": {
-            "BookStack\\": "app/"
+            "BookStack\\": "app/",
+            "Extended\\": "app-ext/"
         },
 		"files": [
 			"app/helpers.php"
