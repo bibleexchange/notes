@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'ebb3fd48e2aba319373fd3fbe3350b1ccc6f011c',
+    'reference' => 'fcf7827c73b3c67f44f3c343f533962782302d79',
     'name' => 'bookstackapp/bookstack',
   ),
   'versions' => 
@@ -90,7 +90,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'ebb3fd48e2aba319373fd3fbe3350b1ccc6f011c',
+      'reference' => 'fcf7827c73b3c67f44f3c343f533962782302d79',
     ),
     'composer/ca-bundle' => 
     array (
@@ -1043,8 +1043,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0|2.0',
-        1 => '1.0.0 || 2.0.0 || 3.0.0',
+        0 => '1.0.0 || 2.0.0 || 3.0.0',
+        1 => '1.0|2.0',
       ),
     ),
     'psr/simple-cache' => 
