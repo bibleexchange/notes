@@ -23,3 +23,5 @@ nbproject
 webpack-stats.json
 .phpunit.result.cache
 .DS_Store
+/vendor
+/vendor/composer
