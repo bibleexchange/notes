@@ -165,6 +165,22 @@ class PageController extends Controller
 
         View::incrementFor($page);
         $this->setPageTitle($page->getShortName());
+        $play_audio = false;
+        if($bookSlug == "audio-and-video" && $pageSlug == "listen" ){
+            $id = app('request')->input('id');
+            $f = '{}';
+            if($id !== null){
+                $index = explode(".",$id)[0];
+                $files_db = json_decode(file_get_contents(public_path()."/filesById.json"));
+                if($file = $files_db->$index){
+                    $f = json_encode($file);
+                }
+
+            }
+
+            $page->html = "<div id='play_audio' data-meta='".$f."''></div>" . $page->html;
+            $play_audio = true;
+        }
 
         return view('pages.show', [
             'page'            => $page,
@@ -176,6 +192,7 @@ class PageController extends Controller
             'next'            => $nextPreviousLocator->getNext(),
             'previous'        => $nextPreviousLocator->getPrevious(),
             'shareComponent'  => $shareComponent,
+            'play_audio' => $play_audio
         ]);
     }
 

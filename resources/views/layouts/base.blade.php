@@ -99,7 +99,28 @@
     <script src="{{ asset('js/share.js') }}" nonce="{{ $cspNonce }}"></script>
 
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
+    <script  nonce="{{ $cspNonce }}">
+        const ap = document.getElementById('play_audio');
+        
+        if(ap !== null){
+            const meta = JSON.parse(ap.dataset.meta)
+            const id = "{{ app('request')->input('id') }}"
+            const idSimple = id.split('.',2)[0];
 
+            const audio = new Audio();
+            audio.controls = 'controls';
+            audio.src="https://archive.org/serve/dc-preaching/"+id
+            ap.appendChild(audio)
+
+            for(i=0; i<=meta.length;i++){
+                const h2el = document.createElement('h2');
+                h2el.innerText = meta[i].id
+                ap.appendChild(h2el);
+            }
+
+
+        }
+    </script>
     @yield('scripts')
 
 </body>
