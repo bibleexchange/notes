@@ -1,0 +1,181 @@
+[2023-09-14 14:49:12] production.ERROR: During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php:1277
+Stack trace:
+#0 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php(11): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\resources\\co...', 1277)
+#1 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(582): include('C:\\resources\\co...')
+#2 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(433): Composer\Autoload\{closure}('C:\\resources\\co...')
+#3 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\helpers.php(109): Composer\Autoload\ClassLoader->loadClass('Illuminate\\Supp...')
+#4 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(130): collect(Array)
+#5 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(106): Illuminate\Foundation\PackageManifest->build()
+#6 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(89): Illuminate\Foundation\PackageManifest->getManifest()
+#7 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(78): Illuminate\Foundation\PackageManifest->config('aliases')
+#8 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+#9 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(219): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap(Object(BookStack\Application))
+#10 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(320): Illuminate\Foundation\Application->bootstrapWith(Array)
+#11 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(129): Illuminate\Foundation\Console\Kernel->bootstrap()
+#12 C:\resources\coding_projects\notes\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\\Support\\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:1277
+Stack trace:
+#0 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php(11): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\\esources\\\\co...', 1277)
+#1 C:\esources\\coding_projects\
+otes\\vendor\\composer\\ClassLoader.php(582): include('C:\\\esources\\\\co...')
+#2 C:\esources\\coding_projects\
+otes\\vendor\\composer\\ClassLoader.php(433): Composer\\Autoload\\{closure}('C:\\\esources\\\\co...')
+#3 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(109): Composer\\Autoload\\ClassLoader->loadClass('Illuminate\\\\Supp...')
+#4 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(130): collect(Array)
+#5 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(106): Illuminate\\Foundation\\PackageManifest->build()
+#6 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(89): Illuminate\\Foundation\\PackageManifest->getManifest()
+#7 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(78): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#8 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#9 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(BookStack\\Application))
+#10 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 C:\esources\\coding_projects\
+otes\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main} at C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-14 14:50:41] production.ERROR: During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php:1277
+Stack trace:
+#0 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php(11): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\resources\\co...', 1277)
+#1 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(582): include('C:\\resources\\co...')
+#2 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(433): Composer\Autoload\{closure}('C:\\resources\\co...')
+#3 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\helpers.php(109): Composer\Autoload\ClassLoader->loadClass('Illuminate\\Supp...')
+#4 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(130): collect(Array)
+#5 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(106): Illuminate\Foundation\PackageManifest->build()
+#6 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(89): Illuminate\Foundation\PackageManifest->getManifest()
+#7 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(78): Illuminate\Foundation\PackageManifest->config('aliases')
+#8 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+#9 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(219): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap(Object(BookStack\Application))
+#10 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(320): Illuminate\Foundation\Application->bootstrapWith(Array)
+#11 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(129): Illuminate\Foundation\Console\Kernel->bootstrap()
+#12 C:\resources\coding_projects\notes\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\\Support\\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:1277
+Stack trace:
+#0 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php(11): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\\esources\\\\co...', 1277)
+#1 C:\esources\\coding_projects\
+otes\\vendor\\composer\\ClassLoader.php(582): include('C:\\\esources\\\\co...')
+#2 C:\esources\\coding_projects\
+otes\\vendor\\composer\\ClassLoader.php(433): Composer\\Autoload\\{closure}('C:\\\esources\\\\co...')
+#3 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(109): Composer\\Autoload\\ClassLoader->loadClass('Illuminate\\\\Supp...')
+#4 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(130): collect(Array)
+#5 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(106): Illuminate\\Foundation\\PackageManifest->build()
+#6 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(89): Illuminate\\Foundation\\PackageManifest->getManifest()
+#7 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(78): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#8 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#9 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(BookStack\\Application))
+#10 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 C:\esources\\coding_projects\
+otes\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main} at C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-14 14:51:07] production.ERROR: During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php:1277
+Stack trace:
+#0 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php(11): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\resources\\co...', 1277)
+#1 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(582): include('C:\\resources\\co...')
+#2 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(433): Composer\Autoload\{closure}('C:\\resources\\co...')
+#3 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\helpers.php(109): Composer\Autoload\ClassLoader->loadClass('Illuminate\\Supp...')
+#4 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(130): collect(Array)
+#5 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(106): Illuminate\Foundation\PackageManifest->build()
+#6 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(89): Illuminate\Foundation\PackageManifest->getManifest()
+#7 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(78): Illuminate\Foundation\PackageManifest->config('aliases')
+#8 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+#9 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(219): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap(Object(BookStack\Application))
+#10 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(320): Illuminate\Foundation\Application->bootstrapWith(Array)
+#11 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(129): Illuminate\Foundation\Console\Kernel->bootstrap()
+#12 C:\resources\coding_projects\notes\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\\Support\\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:1277
+Stack trace:
+#0 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php(11): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\\esources\\\\co...', 1277)
+#1 C:\esources\\coding_projects\
+otes\\vendor\\composer\\ClassLoader.php(582): include('C:\\\esources\\\\co...')
+#2 C:\esources\\coding_projects\
+otes\\vendor\\composer\\ClassLoader.php(433): Composer\\Autoload\\{closure}('C:\\\esources\\\\co...')
+#3 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(109): Composer\\Autoload\\ClassLoader->loadClass('Illuminate\\\\Supp...')
+#4 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(130): collect(Array)
+#5 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(106): Illuminate\\Foundation\\PackageManifest->build()
+#6 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(89): Illuminate\\Foundation\\PackageManifest->getManifest()
+#7 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(78): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#8 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#9 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(BookStack\\Application))
+#10 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 C:\esources\\coding_projects\
+otes\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main} at C:\esources\\coding_projects\
+otes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-14 14:52:16] production.ERROR: During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php:1277
+Stack trace:
+#0 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\Collection.php(11): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\resources\\co...', 1277)
+#1 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(582): include('C:\\resources\\co...')
+#2 C:\resources\coding_projects\notes\vendor\composer\ClassLoader.php(433): Composer\Autoload\{closure}('C:\\resources\\co...')
+#3 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Support\helpers.php(109): Composer\Autoload\ClassLoader->loadClass('Illuminate\\Supp...')
+#4 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(130): collect(Array)
+#5 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(106): Illuminate\Foundation\PackageManifest->build()
+#6 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(89): Illuminate\Foundation\PackageManifest->getManifest()
+#7 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(78): Illuminate\Foundation\PackageManifest->config('aliases')
+#8 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+#9 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(219): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap(Object(BookStack\Application))
+#10 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(320): Illuminate\Foundation\Application->bootstrapWith(Array)
+#11 C:\resources\coding_projects\notes\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(129): Illuminate\Foundation\Console\Kernel->bootstrap()
+#12 C:\resources\coding_projects\notes\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\\Support\\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:1277
+Stack trace:
+#0 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php(11): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8192, 'Return type of ...', 'C:\\\\resources\\\\co...', 1277)
+#1 C:\\resources\\coding_projects\\notes\\vendor\\composer\\ClassLoader.php(582): include('C:\\\\resources\\\\co...')
+#2 C:\\resources\\coding_projects\\notes\\vendor\\composer\\ClassLoader.php(433): Composer\\Autoload\\{closure}('C:\\\\resources\\\\co...')
+#3 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(109): Composer\\Autoload\\ClassLoader->loadClass('Illuminate\\\\Supp...')
+#4 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(130): collect(Array)
+#5 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(106): Illuminate\\Foundation\\PackageManifest->build()
+#6 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(89): Illuminate\\Foundation\\PackageManifest->getManifest()
+#7 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(78): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#8 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#9 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(BookStack\\Application))
+#10 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 C:\\resources\\coding_projects\\notes\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main} at C:\\resources\\coding_projects\\notes\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:11)
+[stacktrace]
+#0 {main}
+"} 
